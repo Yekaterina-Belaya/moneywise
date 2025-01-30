@@ -1,13 +1,25 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {MatTab, MatTabGroup} from "@angular/material/tabs";
+import {MatIcon} from "@angular/material/icon";
+import IconsService from "./core/services/icons.service";
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
+  imports: [
+    MatTabGroup,
+    MatTab,
+    MatIcon
+  ],
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'vivo';
+export class AppComponent{
+  title = 'moneywise';
+
+  constructor(private _iconsService: IconsService) {
+    this._iconsService.init();
+  }
+
 }

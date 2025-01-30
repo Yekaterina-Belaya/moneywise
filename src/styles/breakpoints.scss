@@ -1,0 +1,57 @@
+$resolutions: (
+  half-hd: 960px,
+  laptop: 1280px,
+  large-laptop: 1600px,
+  full-hd: 1920px
+);
+
+@mixin bp-min($bp) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}
+
+@mixin bp-max($bp) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}
+
+@mixin bp-min-height($bp) {
+  @media (min-height: $bp) {
+    @content;
+  }
+}
+
+
+// presets
+
+@mixin max-half-hd {
+  @include bp-max(map-get($resolutions, half-hd)) {
+    @content;
+  }
+}
+
+@mixin min-half-hd {
+  @include bp-min(map-get($resolutions, half-hd)) {
+    @content;
+  }
+}
+
+@mixin min-laptop {
+  @include bp-min(map-get($resolutions, laptop)) {
+    @content;
+  }
+}
+
+@mixin min-large-laptop {
+  @include bp-min(map-get($resolutions, large-laptop)) {
+    @content;
+  }
+}
+
+@mixin min-full-hd {
+  @include bp-min(map-get($resolutions, full-hd)) {
+    @content;
+  }
+}

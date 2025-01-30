@@ -1,1 +1,83 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'styles/variables';
+@use 'styles/colors';
+@import 'styles/fonts';
+@import 'fonts/icon-font/icon-font';
+
+
+:root {
+  --warning: #{colors.$yellow};
+  --success: #{colors.$green-basic};
+  --error: #{colors.$red};
+  --disabled: #{colors.$gray-stroke};
+  --case-error: #{colors.$orange};
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+body {
+  background: colors.$white;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+  margin: 0;
+  position: relative;
+}
+
+.doqa ::-webkit-scrollbar {
+  background-color: colors.$gray-stroke;
+  border-radius: 20px;
+  width: 10px;
+}
+
+.doqa ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.doqa ::-webkit-scrollbar-thumb {
+  background-color: colors.$gray-stroke;
+  border-radius: 20px;
+  width: 10px;
+}
+
+*:focus {
+  outline: none;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+a,
+.link {
+  color: colors.$blue-primary;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.12s ease-out;
+
+  &:visited {
+    text-decoration: underline;
+  }
+
+  &:active {
+    text-decoration: underline;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

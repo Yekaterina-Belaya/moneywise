@@ -1,0 +1,27 @@
+@font-face {
+  font-display: block;
+  font-family: 'basic-icons';
+  font-style: normal;
+  font-weight: normal;
+  src: url(../icon-font/basic.eot);
+  src:
+    url(../icon-font/basic.eot#iefix) format('embedded-opentype'),
+    url(../icon-font/basic.ttf) format('truetype'),
+    url(../icon-font/basic.woff) format('woff'),
+    url(../icon-font/basic.svg#icomoon) format('svg');
+}
+
+.basic-icons {
+  font-family: 'basic-icons';
+  font-size: 24px;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  speak: never;
+  text-transform: none;
+}
