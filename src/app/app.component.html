@@ -3,9 +3,11 @@
     <mat-tab label="First">
       <div class="content">
         <mat-icon>logo</mat-icon>
+        <button (click)="openVacationPayDialog()">Подсчитать отпускные</button>
+        <button (click)="openRegistrationDialog()">Регистрация</button>
       </div>
     </mat-tab>
-    <mat-tab label="Second"> Content 2 </mat-tab>
+    <mat-tab label="Second"> <mw-vacation-table></mw-vacation-table> </mat-tab>
     <mat-tab label="Third"> Content 3 </mat-tab>
   </mat-tab-group>
 </div>

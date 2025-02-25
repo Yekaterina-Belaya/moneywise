@@ -1,0 +1,109 @@
+<h1 mat-dialog-title class="title" >
+  Рассчитать отпускные
+</h1>
+
+<button class="dialog-close-btn" type="button" mat-dialog-close (click)="close()">
+  <mat-icon>close</mat-icon>
+</button>
+
+<mat-dialog-content>
+  <form [formGroup]="form">
+
+    <div class="personal-data">
+      <div class="personal-data__avatar">
+        <input type="text" matInput placeholder="ФИ" formControlName="photo">
+      </div>
+      <div class="personal-data__name">
+        <mat-form-field>
+          <mat-label>ФИО</mat-label>
+          <input formControlName="name" matInput type="text" placeholder="Введите свое ФИО">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Должность</mat-label>
+          <input formControlName="occupation" matInput  type="text" placeholder="Введите название должности">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <mat-form-field>
+        <mat-label>Дата рождения</mat-label>
+        <input formControlName="birthDate" matInput [matDatepicker]="pickerBirth">
+        <mat-datepicker-toggle matIconSuffix [for]="pickerBirth"></mat-datepicker-toggle>
+        <mat-datepicker #pickerBirth></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Номер телефона</mat-label>
+        <input formControlName="phone" matInput  type="text" placeholder="Введите свой номер телефона">
+      </mat-form-field>
+    </div>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input formControlName="email" matInput  type="email" placeholder="Введите свой email">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Адрес</mat-label>
+      <input formControlName="address" matInput  type="text" placeholder="Введите свой адрес">
+    </mat-form-field>
+
+    <div>
+      <span>В шатате компании</span>
+      <mat-slide-toggle formControlName="staff"></mat-slide-toggle>
+    </div>
+
+    <div class="row">
+      <mat-form-field>
+        <mat-label>Дата официального трудоустройства</mat-label>
+        <input formControlName="hireDate" matInput [matDatepicker]="pickerHire">
+        <mat-datepicker-toggle matIconSuffix [for]="pickerHire"></mat-datepicker-toggle>
+        <mat-datepicker #pickerHire></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Форма сотрудничества</mat-label>
+        <mat-select formControlName="contractType">
+            @for(option of options; track option) {
+              <mat-option [value]="option">{{option}}</mat-option>
+            }
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+    <mat-form-field>
+      <mat-label>Оклад (до вычета НДФЛ)</mat-label>
+      <input formControlName="salary" matInput  type="text" placeholder="Введите сумму оклада">
+    </mat-form-field>
+
+    <div class="row">
+      <div class="kpi">
+        <span>KPI</span>
+        <mat-slide-toggle></mat-slide-toggle>
+      </div>
+
+      <mat-form-field *ngIf="true">
+        <mat-label>KPI</mat-label>
+        <input formControlName="kpi" matInput  type="text" placeholder="KPI (%)">
+      </mat-form-field>
+    </div>
+
+    <mat-form-field>
+      <mat-label>Загрузить файл струдового договора</mat-label>
+      <input formControlName="document"  matInput type="text">
+    </mat-form-field>
+
+    <div class="confirm">
+      <mat-checkbox formControlName="agreed"></mat-checkbox>
+      <span>Я соглашаюсь на обработку моих персональных данных в соответствии с политикой конфиденциальности.</span>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Отменить</button>
+  <button mat-button [disabled]="form.touched && form.invalid" type="submit" (click)="submit()">Сохранить</button>
+</mat-dialog-actions>

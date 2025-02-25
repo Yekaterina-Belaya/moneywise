@@ -1,0 +1,27 @@
+<h1 mat-dialog-title class="title" >
+  Рассчитать отпускные
+</h1>
+
+<button class="dialog-close-btn" type="button" mat-dialog-close (click)="close()">
+  <mat-icon>close</mat-icon>
+</button>
+
+<mat-dialog-content>
+  <div class="row">
+    <div class="field">
+      <label>Среднедневной заработок (руб. / день)</label>
+      <input type="text" placeholder="Введите значение" [(ngModel)]="average">
+    </div>
+
+    <div class="field">
+      <label>Количество дней отпуска</label>
+      <input type="text" placeholder="Введите значение" [(ngModel)]="period">
+    </div>
+  </div>
+
+  <div class="field --result">
+    <label>Сумма отпускных (руб.)</label>
+    <input type="text" disabled [value]="average * period">
+  </div>
+
+</mat-dialog-content>
